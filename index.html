@@ -9,10 +9,6 @@
 </head>
 
 <body>
-    <div id=wrap-question>
-        <div id="question" class="pixelfont">?</div>
-        <div id="instructions">Try moving right and left!</div>
-    </div>
     <div id="main">
         <div id="header">
             <h1 id="title"></h1>
@@ -123,8 +119,16 @@
         <div class="pixelfont">Let's try if you can defeat all of them and survive more than anyone!</div>
 
         <div id="tribute-info">
+            <p>If you want to learn more about this game, remakes, history and more check out the <a id="tribute-link"
+                    href="https://en.wikipedia.org/wiki/Space_Invaders" target="_blank">wikipedia article</a></p>
+        </div>
 
-            <a id="tribute-link" href=# target="_blank"></a>
+        <div id=wrap-question>
+            <div id="question" class="pixelfont">?</div>
+            <div id="instructions">
+                <a href="https://www.freecodecamp.org/kevincastle" target="_blank">This is a Freecodecamp
+                    project made by KevCastle</a>
+            </div>
         </div>
     </div>
 </body>
@@ -147,8 +151,7 @@
 
     #wrap-question {
         display: grid;
-        grid-template-columns: 30px 230px;
-        position: fixed;
+        grid-template-columns: 30px 405px;
         align-items: center;
         column-gap: 40px;
         font-size: 20px;
@@ -174,6 +177,12 @@
         border-radius: 10px;
         color: rgb(55, 55, 55);
         transition: 0.3s;
+        transition-delay: 3s;
+    }
+
+    #instructions a {
+        text-decoration: none;
+        color: rgb(55, 55, 55);
     }
 
     #question:hover {
@@ -183,6 +192,7 @@
     #question:hover~#instructions {
         filter: opacity(80%);
         opacity: 1;
+        transition-delay: initial;
     }
 
     #main {
@@ -297,8 +307,11 @@
         height: auto;
         position: absolute;
         bottom: 10%;
-        left: 0;
+        left: 50%;
         fill: rgb(11, 224, 21) !important;
+        transition-duration: 500ms;
+        transition-timing-function: ease-out;
+        transform: translateX(-50%);
     }
 
     .grid-container {
@@ -309,6 +322,8 @@
         text-align: center;
         grid-template-columns: 1fr 2fr;
         grid-template-rows: repeat(7, 50px);
+        font-family: 'VT323', monospace;
+        font-size: 1.8vw;
     }
 
     .grid-container>div {
@@ -319,21 +334,16 @@
     }
 </style>
 <script>
-    var _offset;
-    var maxwidth;
-    $(document).on('mousemove', function (e) {
-        if (!_offset) _offset = $(".player").offset();
-        maxwidth = $(window).width() - 50;
-        $('#spaceship').css({
-            left: (e.pageX - _offset.left) > maxwidth ? maxwidth + 'px' : (e.pageX - _offset.left) +
-                "px"
-        });
+    $(".player").on('touchmove', function (e) {
+        var x = e.touches[0].pageX;
+        $("#spaceship").css('left', x);
     });
 
-    $(".player").on('touchmove', function( e ){
-    var x = e.touches[0].pageX;
-    $("#spaceship").css('left', x);
-});
+    $(document).on('mousemove touchmove', (event) => {
+        $('#spaceship').css({
+            left: event.clientX
+        });
+    });
 </script>
 
 </html>
