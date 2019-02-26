@@ -1,10 +1,21 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Space Invaders: Tribute Page</title>
+    <link rel="icon" href="Styles/space-invaders.png" type="image/png" sizes="16x16">
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" media="all" href="Styles/style.css">
     <link href="https://fonts.googleapis.com/css?family=VT323|Montserrat" rel="stylesheet">
 
+    <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script.js"></script>
 
 </head>
 
@@ -132,218 +143,5 @@
         </div>
     </div>
 </body>
-
-<style>
-    body {
-        margin: 0;
-        padding: 0vw 5vw;
-        background: rgb(0, 0, 0);
-        background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(22, 25, 29, 1) 73%, rgba(55, 55, 55, 1) 100%);
-        background-attachment: fixed;
-        color: white;
-        overflow-x: hidden;
-    }
-
-    hr {
-        border: 0;
-        border-top: 5px solid green;
-    }
-
-    #wrap-question {
-        display: grid;
-        grid-template-columns: 30px 405px;
-        align-items: center;
-        column-gap: 40px;
-        font-size: 20px;
-        font-family: 'VT323';
-    }
-
-    #question {
-        font-size: 40px;
-        margin: 0 0;
-        padding: 15px 30px;
-        filter: opacity(20%);
-        transition: 0.3s;
-        cursor: help;
-        user-select: none;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-    }
-
-    #instructions {
-        filter: opacity(0%);
-        padding: 5px 10px;
-        background: rgb(255, 255, 255);
-        border-radius: 10px;
-        color: rgb(55, 55, 55);
-        transition: 0.3s;
-        transition-delay: 3s;
-    }
-
-    #instructions a {
-        text-decoration: none;
-        color: rgb(55, 55, 55);
-    }
-
-    #question:hover {
-        filter: opacity(100%);
-    }
-
-    #question:hover~#instructions {
-        filter: opacity(80%);
-        opacity: 1;
-        transition-delay: initial;
-    }
-
-    #main {
-        padding: 35px;
-    }
-
-    #main:after {
-        content: "";
-        display: block;
-    }
-
-    #header {
-        padding-bottom: 10px;
-    }
-
-    #img-div {
-        text-align: center;
-    }
-
-    #image {
-        width: 60vw;
-    }
-
-    #img-caption {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: lighter;
-        font-size: 1.2vw;
-        filter: opacity(40%);
-    }
-
-    #preface {
-        text-align: center;
-        line-height: 1.2;
-        padding: 20px 0;
-    }
-
-    .pixelfont {
-        font-family: 'VT323', monospace;
-        font-size: 3vw;
-        text-align: center;
-    }
-
-    p {
-        text-align: justify;
-        line-height: 1.6;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.5vw;
-    }
-
-    .subtitle {
-        font-size: 2.5vw;
-        font-weight: 700;
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    .enemy {
-        width: 70%;
-        margin: auto;
-        display: grid;
-        justify-items: center;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-            "image content"
-    }
-
-    .content {
-        grid-area: content;
-        font-size: 3vw;
-    }
-
-    .img {
-        grid-area: image;
-        width: auto;
-        height: 100%;
-        filter: invert(100%);
-    }
-
-    .img-bonus {
-        grid-area: image;
-        width: 50%;
-        height: auto;
-        padding-top: 15%;
-        fill: red;
-    }
-
-    .shields {
-        width: 70%;
-        margin: 50px auto;
-        display: grid;
-        justify-items: center;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-column-gap: 10vw;
-    }
-
-    .shield {
-        width: 50% !important;
-    }
-
-    .player {
-        position: relative;
-        left: -10;
-        margin: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100px !important;
-        text-align: center;
-    }
-
-    #spaceship {
-        width: 5vw !important;
-        height: auto;
-        position: absolute;
-        bottom: 10%;
-        left: 50%;
-        fill: rgb(11, 224, 21) !important;
-        transition-duration: 500ms;
-        transition-timing-function: ease-out;
-        transform: translateX(-50%);
-    }
-
-    .grid-container {
-        margin: auto;
-        display: grid;
-        width: 70vw;
-        height: auto;
-        text-align: center;
-        grid-template-columns: 1fr 2fr;
-        grid-template-rows: repeat(7, 50px);
-        font-family: 'VT323', monospace;
-        font-size: 1.8vw;
-    }
-
-    .grid-container>div {
-        border-bottom: 2px solid green;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-</style>
-<script>
-    $(".player").on('touchmove', function (e) {
-        var x = e.touches[0].pageX;
-        $("#spaceship").css('left', x);
-    });
-
-    $(document).on('mousemove touchmove', (event) => {
-        $('#spaceship').css({
-            left: event.clientX
-        });
-    });
-</script>
 
 </html>
