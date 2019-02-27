@@ -13,52 +13,6 @@ hr {
     border-top: 5px solid green;
 }
 
-#wrap-question {
-    display: grid;
-    grid-template-columns: 30px 405px;
-    align-items: center;
-    column-gap: 40px;
-    font-size: 20px;
-    font-family: 'VT323';
-}
-
-#question {
-    font-size: 40px;
-    margin: 0 0;
-    padding: 15px 30px;
-    filter: opacity(20%);
-    transition: 0.3s;
-    cursor: help;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-}
-
-#instructions {
-    filter: opacity(0%);
-    padding: 5px 10px;
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    color: rgb(55, 55, 55);
-    transition: 0.3s;
-    transition-delay: 3s;
-}
-
-#instructions a {
-    text-decoration: none;
-    color: rgb(55, 55, 55);
-}
-
-#question:hover {
-    filter: opacity(100%);
-}
-
-#question:hover~#instructions {
-    filter: opacity(80%);
-    opacity: 1;
-    transition-delay: initial;
-}
-
 #main {
     padding: 35px;
 }
@@ -173,9 +127,6 @@ p {
     bottom: 10%;
     left: 50%;
     fill: rgb(11, 224, 21) !important;
-    transition-duration: 500ms;
-    transition-timing-function: ease-out;
-    transform: translateX(-50%);
 }
 
 .grid-container {
@@ -195,4 +146,69 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#wrap-question {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    font-size: 3vw;
+    font-family: 'VT323';
+}
+
+#question {
+    font-size: 4vw;
+    margin: 0 0;
+    padding: 15px 30px;
+    filter: opacity(20%);
+    transition: 0.3s;
+    cursor: help;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+#instructions {
+    text-align: center;
+    filter: opacity(0%);
+    padding: 5px 10px;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    color: rgb(55, 55, 55);
+    transition: 0.3s;
+    transition-delay: 3s;
+}
+
+#instructions a {
+    text-decoration: none;
+    color: rgb(55, 55, 55);
+}
+
+#question:hover {
+    filter: opacity(100%);
+}
+
+#question:hover~#instructions {
+    filter: opacity(80%);
+    opacity: 1;
+    transition-delay: initial;
+}
+
+@media only screen and (min-width: 768px) {
+    #spaceship {
+        left: 50%;
+        transition-duration: 500ms;
+        transition-timing-function: ease-out;
+        transform: translateX(-50%);
+    }
+
+    #wrap-question {
+        font-size: 2.5vw;
+    }
+
+    #question {
+        font-size: 3vw;
+    }
+
+
 }

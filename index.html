@@ -3,20 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="initial-scale=0.1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Space Invaders: Tribute Page</title>
     <link rel="icon" href="Styles/space-invaders.png" type="image/png" sizes="16x16">
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" media="all" href="Styles/style.css">
     <link href="https://fonts.googleapis.com/css?family=VT323|Montserrat" rel="stylesheet">
-
-    <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="script.js"></script>
-
 </head>
 
 <body>
@@ -143,5 +140,19 @@
         </div>
     </div>
 </body>
+
+<!-- Scripts -->
+<script>
+    $(document).on('mousemove', (event) => {
+        $('#spaceship').css({
+            left: event.clientX
+        });
+    });
+
+    $(".player").on('touchmove', function (e) {
+        var x = e.touches[0].pageX;
+        $("#spaceship").css('left', x);
+    });
+</script>
 
 </html>

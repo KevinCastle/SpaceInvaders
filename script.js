@@ -3,7 +3,7 @@ $(".player").on('touchmove', function (e) {
     $("#spaceship").css('left', x);
 });
 
-$(document).on('mousemove touchmove', (event) => {
+$(document).on('mousemove', (event) => {
     $('#spaceship').css({
         left: event.clientX
     });
