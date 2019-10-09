@@ -1,7 +1,7 @@
 # Space Invaders: Tribute page 
 
 First freecodecamp project that I remade.  I hadn't any reason to made it about Space Invaders.
-I really like videogames and a weeks ago I went to a Arcade where I saw Space Invaders Frenzy. It was crazy!
+I really like videogames and weeks ago I went to an Arcade where I saw Space Invaders Frenzy. It was crazy!
 So i thought about what kind of game can be so "arcade" and still being so good and popular?
 
 
