@@ -194,6 +194,10 @@ p {
     transition-delay: initial;
 }
 
+@-ms-viewport{
+  width: device-width;
+}
+
 @media only screen and (min-width: 768px) {
     #spaceship {
         left: 50%;
